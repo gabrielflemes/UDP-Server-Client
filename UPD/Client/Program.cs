@@ -9,9 +9,13 @@ namespace Client
             Console.Title = "[POC TCP/UDP] Client";
 
 
-            //Start UDP/FTP client.
-            Client.Instance.ConnectToServer();
+            //get name from console
+            Console.Write("Type your name: ");
+            string inputName = Console.ReadLine();
 
+
+            //Start UDP/FTP client.
+            Client.Instance.ConnectToServer(inputName);
 
             //message/app loop
             while (true)
@@ -19,7 +23,7 @@ namespace Client
 
                 string inputText = Console.ReadLine();
 
-                ClientSend.Message(inputText);
+                ClientSend.Message(inputName, inputText);
 
             }
         }

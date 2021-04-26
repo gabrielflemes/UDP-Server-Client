@@ -96,6 +96,7 @@ namespace Server
                             if (users[i].udp.endPoint == null)
                             {
                                 users[i].udp.Connect(clientEndPoint);
+                                users[i].name = _packet.ReadString();
                                 clientId = i;
                                 break;
                             }

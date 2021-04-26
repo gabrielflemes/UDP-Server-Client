@@ -48,7 +48,7 @@ namespace Server
             using (Packet _packet = new Packet((int)ServerPackets.welcome))
             {
                 _packet.Write(_toClient);
-                _packet.Write("Welcome to the server.");
+                _packet.Write($"Hey {UDPServer.users[_toClient].name}, welcome to the server.");
 
                 SendUDPData(_toClient, _packet);
             }
@@ -57,12 +57,13 @@ namespace Server
         /// <summary>Sends a message to the given client.</summary>
         /// <param name="_toClient">The client to send the packet to.</param>
         /// <param name="_msg">The message to send.</param>
-        public static void MessageToAll(int _fromClient, string _msg)
+        public static void MessageToAll(int _fromClient, string _name, string _msg)
         {
 
             using (Packet _packet = new Packet((int)ServerPackets.message))
             {
                 _packet.Write(_fromClient);
+                _packet.Write(_name);
                 _packet.Write(_msg);
 
                 SendUDPDataToAll(_fromClient, _packet);

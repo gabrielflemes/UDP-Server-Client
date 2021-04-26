@@ -14,7 +14,7 @@ namespace Client
             string _msg = _packet.ReadString();
             
 
-            Console.WriteLine($"{_myId} : {_msg}");
+            Console.WriteLine($"Server: {_msg}");
 
             Client.Instance.myId = _myId;
 
@@ -30,9 +30,10 @@ namespace Client
         {
 
             int id = _packet.ReadInt();
+            string name = _packet.ReadString();
             string message = _packet.ReadString();
 
-            Console.WriteLine($"{id}:{message}");
+            Console.WriteLine($"{name}: {message}");
 
         }
     }

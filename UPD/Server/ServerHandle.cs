@@ -30,12 +30,13 @@ namespace Server
         public static void MessageReceived(int _fromClient, Packet _packet)
         {
             int _clientIdCheck = _packet.ReadInt();
+            string _name = _packet.ReadString();
             string _msg = _packet.ReadString();
 
-            Console.WriteLine($"{_clientIdCheck}: {_msg}");
+            Console.WriteLine($"{_name}: {_msg}");
 
             //broadcast send to all
-            ServerSend.MessageToAll(_fromClient, _msg);
+            ServerSend.MessageToAll(_fromClient, _name, _msg);
        
            
         }

@@ -9,6 +9,8 @@ namespace Client
         private static Client instance = null;
         private static readonly object padlock = new object();
 
+        public string name;
+
         public static int dataBufferSize = 4096; //4mb
 
         public string ip = "127.0.0.1"; //localhost
@@ -46,8 +48,11 @@ namespace Client
             }
         }
 
-        public void ConnectToServer()
+        public void ConnectToServer(string _name)
         {
+            //SET NAME TO CLIENT
+            name = _name;
+
 
             udp = new UDP();
 

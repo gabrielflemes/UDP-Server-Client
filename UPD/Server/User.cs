@@ -7,6 +7,8 @@ namespace Server
     public class User
     {
         public int id;
+        public string name { get; set; }
+
         public UDP udp;
 
         public User(int _id)

@@ -30,18 +30,20 @@ namespace Client
             //send first packet
             using (Packet packet = new Packet())
             {
+                packet.Write(Client.Instance.name);
                 SendData(packet);
             }
         }
 
 
-        /// <summary>Sends data to the client via UDP.</summary>
+        /// <summary>Sends data to the server via UDP.</summary>
         /// <param name="_packet">The packet to send.</param>
         public void SendData(Packet packet)
         {
             try
             {
                 packet.InsertInt(Client.Instance.myId); // Insert the client's ID at the start of the packet
+               
 
                 if (socket != null)
                 {
