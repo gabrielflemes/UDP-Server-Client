@@ -41,7 +41,7 @@ namespace Server
                 using (Packet _packet = new Packet(_packetBytes))
                 {
                     int _packetId = _packet.ReadInt();
-                    UDPServer.packetHandlers[_packetId](id, _packet); // Call appropriate method to handle the packet
+                    UDPServer.packetHandlers[_packetId](id, _packet); // Call appropriate method to handle the packet on ServerHandle
                 }
             });
 

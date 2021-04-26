@@ -101,16 +101,20 @@ namespace Server
                             }
                         }
 
-                        using (Packet _pack = new Packet((int)ServerPackets.welcome))
-                        {
-                            //you have to catch these info at client on the same order
-                            _pack.Write(clientId);
-                            _pack.Write("Welcome");
-                            _pack.WriteLength();
+                        //using (Packet _pack = new Packet((int)ServerPackets.welcome))
+                        //{
+                        //    //you have to catch these info at client on the same order
+                        //    _pack.Write(clientId);
+                        //    _pack.Write("Welcome");
+                        //    _pack.WriteLength();
 
 
-                            UDPServer.SendUDPData(clientEndPoint, _pack);
-                        }
+                        //    UDPServer.SendUDPData(clientEndPoint, _pack);
+
+                        //}
+
+                        //sent to own client a Welcome message
+                        ServerSend.Welcome(clientId);
 
                         return;
                
